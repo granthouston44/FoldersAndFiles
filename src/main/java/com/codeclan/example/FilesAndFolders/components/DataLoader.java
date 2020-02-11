@@ -28,10 +28,12 @@ public class DataLoader implements ApplicationRunner {
     @Override
 public void run(ApplicationArguments args)    {
 
+        User user1 = new User("Yer da");
+        userRepository.save(user1);
 
-        Folder folder1 = new Folder("First Folder");
+        Folder folder1 = new Folder("First Folder", user1);
         folderRepository.save(folder1);
-        Folder folder2 = new Folder("Second Folder");
+        Folder folder2 = new Folder("Second Folder", user1);
         folderRepository.save(folder2);
 
         File file1 = new File("First File", ExtensionType.JAVA, folder1);
@@ -52,8 +54,7 @@ public void run(ApplicationArguments args)    {
         File file6 = new File("Sixth File", ExtensionType.PPT, folder2);
         fileRepository.save(file6);
 
-        User user1 = new User("Yer da");
-        userRepository.save(user1);
+
     }
 
 }

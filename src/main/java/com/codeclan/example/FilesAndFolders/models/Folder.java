@@ -21,15 +21,24 @@ public class Folder {
     private List<File> files;
 
     @ManyToOne
-    @JoinColumn(name = "folder_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Folder(String title) {
+    public Folder(String title, User user) {
         this.title = title;
+        this.user = user;
     }
 
     public Folder(){
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
