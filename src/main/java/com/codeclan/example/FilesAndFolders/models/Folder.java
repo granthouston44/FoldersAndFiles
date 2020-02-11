@@ -20,7 +20,9 @@ public class Folder {
     @OneToMany
     private List<File> files;
 
-
+    @ManyToOne
+    @JoinColumn(name = "folder_id", nullable = false)
+    private User user;
 
     public Folder(String title) {
         this.title = title;
